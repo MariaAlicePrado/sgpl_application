@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sgpl_application/main.dart';
+import 'package:sgpl_application/pages/Devolucoes.dart';
 
 class Historico extends StatelessWidget {
   @override
@@ -20,21 +22,54 @@ class Historico extends StatelessWidget {
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              IconButton(
-                icon: Icon(Icons.home),
+              //Botão Devoluções
+              TextButton(
                 onPressed: () {
-                  print('Home clicado');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Devolucoes()),
+                  );
+                  print('Devoluções clicado');
                 },
+                style: TextButton.styleFrom(
+                  foregroundColor:
+                      Colors.black, // Define a cor do texto e do ícone
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.desktop_windows_outlined),
+                    SizedBox(width: 8),
+                    Text('Devoluções'),
+                  ],
+                ),
               ),
-              IconButton(
-                icon: Icon(Icons.settings),
+              // Botão de Saída
+              TextButton(
                 onPressed: () {
-                  print('Configurações clicado');
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => SgplApp()),
+                    (route) => false,
+                  );
+                  print('Sair clicado');
                 },
+                style: TextButton.styleFrom(
+                  foregroundColor:
+                      Colors.black, // Define a cor do texto e do ícone
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.desktop_windows_outlined),
+                    SizedBox(width: 8),
+                    Text('Sair'),
+                  ],
+                ),
               ),
             ],
           ),

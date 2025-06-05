@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sgpl_application/pages/Aviso.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(SgplApp());
 }
 
-class MyApp extends StatelessWidget {
+class SgplApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
